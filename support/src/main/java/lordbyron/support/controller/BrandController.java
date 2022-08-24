@@ -18,13 +18,14 @@ public class BrandController {
 
     @GetMapping("/all")
     public Iterable<Brand> getAllBrand(){
+
         return brandService.getAllBrand();
     }
 
-    @PostMapping("/add/{name}")
-    public void newBrand(@PathVariable("name") String name){
-        brandService.newBrand(name);
-    }
+//    @PostMapping("/add/{name}")
+//    public void newBrand(@PathVariable("name") String name){
+//        brandService.newBrand(name);
+//    }
 
 
 }

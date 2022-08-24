@@ -1,5 +1,6 @@
 package lordbyron.support.services;
 
+import lordbyron.support.entity.Brand;
 import lordbyron.support.entity.Model;
 import lordbyron.support.repository.ModelRepository;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,10 @@ public class ModelServiceImpl implements ModelService{
     }
 
     @Override
-    public Model newModel(String name) {
+    public Model newModel(String name, Brand brand) {
         Model model = new Model();
         model.setName(name);
+        model.setBrand(brand);
         return modelRepository.save(model);
     }
 
@@ -28,6 +30,6 @@ public class ModelServiceImpl implements ModelService{
 
     @Override
     public Iterable<Model> getAllModel() {
-        return null;
+        return modelRepository.findAll();
     }
 }

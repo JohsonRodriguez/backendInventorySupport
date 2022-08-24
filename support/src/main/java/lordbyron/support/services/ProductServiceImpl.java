@@ -1,7 +1,9 @@
 package lordbyron.support.services;
 
+import lordbyron.support.Dto.BrandDto;
 import lordbyron.support.Dto.ProductDto;
 import lordbyron.support.Shared.MethodsService;
+import lordbyron.support.entity.Brand;
 import lordbyron.support.entity.Product;
 import lordbyron.support.exception.NotFoundException;
 import lordbyron.support.repository.ProductRepository;
@@ -55,8 +57,10 @@ public class ProductServiceImpl implements ProductService{
         product.setObservation(productDto.getObservation());
         product.setStatus(productDto.getStatus());
         product.setLocation(productDto.getLocation());
-        brandService.newBrand(productDto.getBrand());
-        modelService.newModel(productDto.getModel());
+        BrandDto brandDto = new BrandDto();
+        brandDto.setProductBrand(productDto.getBrand());
+        brandDto.setProductModel(productDto.getModel());
+        brandService.newBrand(brandDto);
         productRepository.save(product);
     }
 

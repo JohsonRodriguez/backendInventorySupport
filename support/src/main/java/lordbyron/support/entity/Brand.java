@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -19,6 +20,6 @@ public class Brand implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Model> models = new ArrayList<>();
+    @OneToMany(mappedBy="brand",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private Set<Model> models;
 }

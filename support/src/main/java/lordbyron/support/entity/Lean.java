@@ -26,6 +26,6 @@ public class Lean implements Serializable {
     private String returnObs;
     private String serial;
     private String status;
-    private String user;
+    private String userName;
     private String person;
 }
